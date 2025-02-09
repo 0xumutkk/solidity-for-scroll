@@ -24,6 +24,7 @@ contract Lock {
         lockers[msg.sender] += amount;
 
         bool ok = Token.transferFrom(msg.sender,address(this),amount);
+        //syntax: function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)
         require(ok,"Transfer failed.");
     
     }
@@ -35,6 +36,7 @@ contract Lock {
         totalLocked -=amount;
         lockerCount--;
         require(Token.transfer(msg.sender,amount),"Transfer failed");
+        //syntax: 
     
     }
 
